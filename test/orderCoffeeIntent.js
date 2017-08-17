@@ -75,7 +75,7 @@ describe("Testing an Intent request for orderCoffeeIntent - SMALL CAPPUCCINO", f
 		})
 
 		it("should have a session attributes object including both values \'small\' and \'cappuccino\'", function() {
-			expect(speechResponse.sessionAttributes.size).not.to.equal('large')
+			expect(speechResponse.sessionAttributes.size).not.to.equal('larger')
 			expect(speechResponse.sessionAttributes.type).not.to.equal('latte')
 		})
 

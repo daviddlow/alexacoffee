@@ -56,35 +56,7 @@ describe("Testing an Intent request for orderCoffeeIntent - SMALL CAPPUCCINO", f
 	})
 
 	beforeEach(function(){
-		describe("The response is structurally correct for Alexa Speech Services", function() {
-			
-					it('should not have errored', function() {
-						expect(speechError).to.be.null
-					})
-			
-					it('should have a version', function() {
-						expect(speechResponse.version).not.to.be.null
-					})
-			
-					it('should have a speechlet response', function() {
-						expect(speechResponse.response).not.to.be.null
-					})
-			
-					it('should have session attributes', function() {
-						expect(speechResponse.sessionAttributes).not.to.be.null
-						expect(speechResponse.sessionAttributes).not.to.equal('undefined')
-					})
-			
-					it("should have a spoken response", () => {
-						expect(speechResponse.response.outputSpeech).not.to.be.null
-					})
-			
-					it("should not end the alexa session", function() {
-						expect(speechResponse.response.shouldEndSession).not.to.be.null
-						expect(speechResponse.response.shouldEndSession).to.be.false
-					})
-			
-				})
+		// runs before each test in this block
 		})
 
 	describe("The specific intent response details are correct", function() {
@@ -100,6 +72,11 @@ describe("Testing an Intent request for orderCoffeeIntent - SMALL CAPPUCCINO", f
 		it("should have a session attributes object including both values \'small\' and \'cappuccino\'", function() {
 			expect(speechResponse.sessionAttributes.size).to.equal('small')
 			expect(speechResponse.sessionAttributes.type).to.equal('cappuccino')
+		})
+
+		it("should have a session attributes object including both values \'small\' and \'cappuccino\'", function() {
+			expect(speechResponse.sessionAttributes.size).not.to.equal('large')
+			expect(speechResponse.sessionAttributes.type).not.to.equal('latte')
 		})
 
 	})
